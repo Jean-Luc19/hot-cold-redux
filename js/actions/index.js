@@ -13,4 +13,4 @@ export const GUESS = 'GUESS';
 export const guess = guessNumber => ({
     type: GUESS,
     guessNumber
-})
+});
