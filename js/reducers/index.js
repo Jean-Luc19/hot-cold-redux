@@ -1,40 +1,41 @@
 import * as actions from '../actions/index';
 
-const initialRepositoryState = {
+const initialState = {
     target: Math.floor(Math.random() * 100),
     match: false,
     temps: ['frigid', 'nippy', 'tepid', 'smoldering', 'scortching', 'en-freaking-fuego' ],
     currentTemp: '',
-    guesses: [],
+    guessArray: [],
 }
 
-export const gameReducer = (state=initialRepositoryState, action) => {
+export const gameReducer = (state=initialState, action) => {
     if (action.type === actions.NEW_GAME) {
-        return initialRepositoryState
+        return initialState
     }
     else if (action.type === actions.GUESS){
-        const newGuessArray = [...state.guesses, action.guessNumber];
+        const guessDiff = (Math.abs(action.guessNumber - state.target));
+        const newGuessArray = [...state.guessArray, action.guessNumber];
 
-        if (action.guessNumber === state.target) {
+        if (guessDiff === 0) {
             return Object.assign({}, state, {match: true})
         }
-        else if (Math.abs(action.guessNumber - state.target) <= 5) {
-            return Object.assign({}, state, {guesses: newGuessArray}, {currentTemp: state.temps[5]})
+        else if (guessDiff <= 5) {
+            return Object.assign({}, state, {guessArray: newGuessArray}, {currentTemp: state.temps[5]})
         }
-        else if (Math.abs(action.guessNumber - state.target) <= 10) {
-            return Object.assign({}, state, {guesses: newGuessArray}, {currentTemp: state.temps[4]})
+        else if (guessDiff <= 10) {
+            return Object.assign({}, state, {guessArray: newGuessArray}, {currentTemp: state.temps[4]})
         }
-        else if (Math.abs(action.guessNumber - state.target) <= 25) {
-            return Object.assign({}, state, {guesses: newGuessArray}, {currentTemp: state.temps[3]})
+        else if (guessDiff <= 25) {
+            return Object.assign({}, state, {guessArray: newGuessArray}, {currentTemp: state.temps[3]})
         }
-        else if (Math.abs(action.guessNumber - state.target) <= 40) {
-            return Object.assign({}, state, {guesses: newGuessArray}, {currentTemp: state.temps[2]})
+        else if (guessDiff <= 40) {
+            return Object.assign({}, state, {guessArray: newGuessArray}, {currentTemp: state.temps[2]})
         }
-        else if (Math.abs(action.guessNumber - state.target) <= 60) {
-            return Object.assign({}, state, {guesses: newGuessArray}, {currentTemp: state.temps[1]})
+        else if (guessDiff <= 60) {
+            return Object.assign({}, state, {guessArray: newGuessArray}, {currentTemp: state.temps[1]})
         }
-        else if (Math.abs(action.guessNumber - state.target) > 60) {
-            return Object.assign({}, state, {guesses: newGuessArray}, {currentTemp: state.temps[0]})
+        else if (guessDiff > 60) {
+            return Object.assign({}, state, {guessArray: newGuessArray}, {currentTemp: state.temps[0]})
         }
     }
     return state;
