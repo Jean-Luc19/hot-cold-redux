@@ -6,6 +6,7 @@ const initialState = {
     temps: ['frigid', 'nippy', 'tepid', 'smoldering', 'scortching', 'en-freaking-fuego' ],
     currentTemp: '',
     guessArray: [],
+    modal: false
 }
 
 export const gameReducer = (state=initialState, action) => {
@@ -37,6 +38,11 @@ export const gameReducer = (state=initialState, action) => {
         else if (guessDiff > 60) {
             return Object.assign({}, state, {guessArray: newGuessArray}, {currentTemp: state.temps[0]})
         }
+
+    }
+
+    else if (action.type === actions.TOGGLE_MODAL) {
+        return {...state, modal: !state.modal}
     }
     return state;
 

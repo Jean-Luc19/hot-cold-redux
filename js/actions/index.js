@@ -6,11 +6,16 @@ Actions for hot cold game:
 
 export const NEW_GAME = 'NEW_GAME';
 export const newGame = () => ({
-    type: NEW_GAME
+    type: NEW_GAME,
 });
 
 export const GUESS = 'GUESS';
 export const guess = guessNumber => ({
     type: GUESS,
     guessNumber
+});
+
+export const TOGGLE_MODAL = 'TOGGLE_MODAL';
+export const toggleModal = () => ({
+    type: TOGGLE_MODAL
 });

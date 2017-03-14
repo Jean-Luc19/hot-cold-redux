@@ -5,9 +5,6 @@ export default class UserGuess extends React.Component {
     super(props);
 
   };
-
-
-
   render() {
     return (
             <div className="guess-input">
