@@ -27,21 +27,12 @@ export class GameContainer extends React.Component {
     return (
         <section id="container">
             <UserGuess onClick={this.handleClick} />
+            <ModalContent />
             <GuessList />
             <Feedback />
             <ModalButton onClick={this.handleModalClick} />
-            <ModalContent />
         </section>
     );
   }
 }
-
-const mapStateToProps = (state, props) => ({
-    currentTemp: state.currentTemp,
-    guessArray: state.guessArray,
-    target: state.target,
-    match: state.match,
-    modal: state.modal
-});
-
-export default connect(mapStateToProps)(GameContainer);
+export default connect()(GameContainer);
