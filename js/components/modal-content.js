@@ -2,13 +2,15 @@ import React from 'react';
 
 import {connect} from 'react-redux';
 
+import CloseModal from './close-modal';
 
 export function ModalContent(props) {
   const hide = props.modalState ? '' : 'hidden';
     return (
       <div className = {`modal-container ${hide}`}>
-        <h3>This is a Modal</h3>
-        <p>Content, content, content.</p>
+        <h3>Play Hot Or Cold</h3>
+        <p>This is the Best Game Since HoppingScotch!</p>
+        <CloseModal />
       </div>
     )
 }
