@@ -27,10 +27,10 @@ export class GameContainer extends React.Component {
     return (
         <section id="container">
             <UserGuess onClick={this.handleClick} />
-            <GuessList guessArray={this.props.guessArray} />
+            <GuessList />
             <Feedback />
             <ModalButton onClick={this.handleModalClick} />
-            <ModalContent modalState={this.props.modal} />
+            <ModalContent />
         </section>
     );
   }
