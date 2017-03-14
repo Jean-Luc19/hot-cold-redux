@@ -1,8 +1,13 @@
 import React from 'react';
-
-export default function Feedback (props) {
+import { connect } from 'react-redux';
+export function Feedback (props) {
     const winner = props.match ? 'you win' : props.currentTemp;
     return (
         <h1>{winner}</h1>
-    )
+    );
 }
+const mapStateToProps = (state, props)=>({
+  currentTemp: state.currentTemp,
+  match: state.match
+});
+export default connect(mapStateToProps)(Feedback);

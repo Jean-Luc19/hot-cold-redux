@@ -28,7 +28,7 @@ export class GameContainer extends React.Component {
         <section id="container">
             <UserGuess onClick={this.handleClick} />
             <GuessList guessArray={this.props.guessArray} />
-            <Feedback currentTemp={this.props.currentTemp} match={this.props.match}/>
+            <Feedback />
             <ModalButton onClick={this.handleModalClick} />
             <ModalContent modalState={this.props.modal} />
         </section>
