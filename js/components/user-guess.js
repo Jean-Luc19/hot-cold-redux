@@ -14,7 +14,6 @@ export default class UserGuess extends React.Component {
                 <input type="text" placeholder="Take a Guess"
                     ref={ref => this.guessInput = ref}
                 />
-
                 <button onClick={() => this.props.onClick(this.guessInput)}>Submit
                 </button>
             </div>

@@ -1,12 +1,8 @@
 import React from 'react';
 import {connect} from 'react-redux';
-
 import Feedback from './feedback';
-
 import UserGuess from './user-guess';
-
 import GuessList from './guess-list';
-
 import * as actions from '../actions/index';
 
 export class GameContainer extends React.Component {
@@ -18,7 +14,6 @@ export class GameContainer extends React.Component {
 
   handleClick(input) {
       this.props.dispatch(actions.guess(input.value));
-
   }
 
   render() {
