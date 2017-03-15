@@ -3,31 +3,19 @@ import {connect} from 'react-redux';
 import Feedback from './feedback';
 import UserGuess from './user-guess';
 import GuessList from './guess-list';
-import * as actions from '../actions/index';
 import ModalButton from './modal-button';
 import ModalContent from './modal-content';
+import NewGame from './new-game'
 
-export class GameContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleModalClick = this.handleModalClick.bind(this);
-  };
-
-  handleModalClick() {
-      this.props.dispatch(actions.toggleModal());
-  }
-
-  render() {
-
+export function GameContainer (props) {
     return (
         <section id="container">
+            <ModalButton />
+            <NewGame />
             <UserGuess />
-            <ModalContent />
             <GuessList />
             <Feedback />
-            <ModalButton onClick={this.handleModalClick} />
         </section>
     );
-  }
 }
 export default connect()(GameContainer);

@@ -15,7 +15,8 @@ export class CloseModal extends React.Component {
     render() {
         const hide = this.props.modalState ? '' : 'hidden';
         return (
-            <button onClick={this.handleCloseClick} className={`close-button ${hide}`}>
+            <button
+                onClick={this.handleCloseClick} className={`close-button ${hide}`}>
                 BackToGame
             </button>
         )
