@@ -17,7 +17,6 @@ describe('Should return objects with type and payload', function() {
         const testNum = 5;
         const guessTest = actions.guess(testNum);
         guessTest.guessNumber.should.equal(5);
-        console.log(guessTest);
     })
     it('Should return an object with type TOGGLE_MODAL', function(){
         const modaltest = actions.toggleModal();
