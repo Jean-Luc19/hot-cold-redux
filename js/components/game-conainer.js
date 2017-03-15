@@ -13,7 +13,6 @@ export function GameContainer (props) {
             <ModalButton />
             <NewGame />
             <UserGuess />
-            <GuessList />
             <Feedback />
         </section>
     );
