@@ -17,9 +17,7 @@ export class UserGuess extends React.Component {
     this.setState({input: ''});
   }
   handleChange(e) {
-
      this.setState({input: e.target.value});
-
   }
   render() {
     return (
@@ -34,7 +32,6 @@ export class UserGuess extends React.Component {
                     />
                     <input type="submit"/>
                 </form>
-
             </div>
     );
   }

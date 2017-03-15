@@ -18,7 +18,7 @@ export class ModalButton extends React.Component {
             <div>
                 <button
                     onClick={this.handleModalClick}
-                    className={`modal-button ${hide}`}>Click
+                    className={`modal-button ${hide}`}>User Manual
                 </button>
             </div>
         );
