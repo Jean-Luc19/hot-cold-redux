@@ -20,6 +20,7 @@ export function GameContainer (props) {
               <Feedback />
             </div>
             <NewGame />
+
         </section>
       </div>
     );
