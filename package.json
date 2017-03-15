@@ -6,7 +6,7 @@
   "scripts": {
     "start": "http-server -c-1 build",
     "dev": "run-p watch serve",
-    "test": "mocha --recursive --compilers js:babel-core/register",
+    "test": "mocha --watch --recursive --compilers js:babel-core/register",
     "build": "run-s build:*",
     "clean": "rimraf build",
     "serve": "npm start",
@@ -41,6 +41,7 @@
   "license": "UNLICENSED",
   "devDependencies": {
     "babel-cli": "^6.11.4",
+    "babel-jest": "^19.0.0",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-object-rest-spread": "^6.8.0",
     "babel-polyfill": "^6.13.0",
