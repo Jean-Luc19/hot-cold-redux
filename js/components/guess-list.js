@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 
 export function GuessList(props) {
     return (
-        <h2>{props.guessArray.join(', ')}</h2>
+        <div className="GuessList">
+          <h4>{props.guessArray.join(', ')}</h4>
+        </div>
     )
 }
 

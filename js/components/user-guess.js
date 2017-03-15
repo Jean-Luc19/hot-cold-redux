@@ -23,14 +23,14 @@ export class UserGuess extends React.Component {
     return (
             <div className="guess-input">
                 <form action="" onSubmit={this.handleClick}>
-                    <input type="number"
+                    <input className="input" type="number"
                         max="100"
-                        placeholder="Take a Guess"
+                        placeholder="Current Thermodynamic Indicator"
                         onChange={this.handleChange}
                         value={this.state.input}
                         required
                     />
-                    <input type="submit"/>
+                  <input className="input submit" type="submit"/>
                 </form>
             </div>
     );

@@ -8,9 +8,11 @@ export function ModalContent(props) {
   const hide = props.modalState ? '' : 'hidden';
     return (
       <div className = {`modal-container ${hide}`}>
-        <h3>Play Hot Or Cold</h3>
-        <p>This is the Best Game Since HoppingScotch!</p>
-        <CloseModal />
+        <div className ="innerModal">
+          <h3>Play Hot Or Cold</h3>
+          <p>This is the Best Game Since HoppingScotch!</p>
+          <CloseModal />
+        </div>
       </div>
     )
 }

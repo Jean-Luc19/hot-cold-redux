@@ -3,26 +3,127 @@
 }
 
 .hidden {
-  display: none;
+    display: none;
 }
+
 body {
-  background-color: #394267;
+    background-color: #394267;
+    font: 100% "Open Sans", Helvetica, sans-serif;
+    width: 80%;
+    margin: 0 auto;
+    line-height: 1.6;
+    color: white;
+    text-align: center;
+}
+#app {
+  position: relative;
+  margin: 0;
+  height:100%;
+  width: 100%;
+}
+.fullScreen {
+  position: relative;
+  padding: 40px;
+  height:100%;
+  width: 100%;
+}
+
+h2 {
+    font-family: Arial-Black;
+    font-size: 29px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+    text-align: center;
+    margin:5px 20px;
 }
 
 #container {
-    margin: 0 auto;
-    max-width: 500px;
-    min-height: 600px;
-    background-color: #1F243F;
-    position: relative;
+    margin: 50px auto;
+    width: 80%;
+    display: flex;
+}
+.modal-container{
+  margin: 40px auto;
+  height:100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1000;
+  background-color: #CC344A;
+}
+.innerModal {
+  width: 50%;
+  margin:50px auto;
 }
 
-.modal-button {
-  font-family:font-family: Arial-BoldMT;
-  font-size: 20px;
-  color: #FFFFFF;
-  width: 200px;
-  height: 60px;
-  text-align: center;
-  background-color: inherit;
+
+.gameboard {
+    margin: auto;
+    border-radius: 10px;
+    background: #1F243F;
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px 20px;
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+}
+
+.guess-input > form {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.guess-input .input {
+    height:50px;
+    padding: 5px;
+    width: 65%;
+    margin:5px auto;
+    border: 0;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 18px;
+}
+.input.submit {
+    height:40px;
+    padding: 10px;
+    width: 65%;
+    background-color: #394267;
+    border: 0;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.GuessList {
+    margin: 0;
+    padding: 0;
+    height: 40px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.Feedback {
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+    height: 200px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.modal-button, button {
+    font-family: font-family: Arial-BoldMT;
+    border: 0;
+    font-size: 20px;
+    width: 200px;
+    height: 60px;
+    text-align: center;
+    background-color: #394267;
+    color: #ffffff;
+    font-size: 1em;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    border-width: 0;
+    border-style: none;
 }

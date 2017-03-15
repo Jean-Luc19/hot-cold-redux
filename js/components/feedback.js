@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 export function Feedback (props) {
     const winner = props.match ? 'you win' : props.currentTemp;
     return (
-        <h1>{winner}</h1>
+        <div className="Feedback"><p>{winner}</p></div>
     );
 }
 const mapStateToProps = (state, props)=>({

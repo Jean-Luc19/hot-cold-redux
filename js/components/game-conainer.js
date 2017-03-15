@@ -9,13 +9,19 @@ import NewGame from './new-game'
 
 export function GameContainer (props) {
     return (
-        <section id="container">
+      <div className="fullScreen">
+        <ModalContent />
+          <section id="container">
             <ModalButton />
+            <div className="gameboard">
+              <h2>Themodynamic Disambigualator</h2>
+              <UserGuess />
+              <GuessList />
+              <Feedback />
+            </div>
             <NewGame />
-            <UserGuess />
-            <GuessList />
-            <Feedback />
         </section>
+      </div>
     );
 }
 export default connect()(GameContainer);
