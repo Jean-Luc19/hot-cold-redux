@@ -6,7 +6,7 @@ const initialState = {
     temps: ['frigid', 'nippy', 'tepid', 'smoldering', 'scortching', 'en-freaking-fuego' ],
     currentTemp: '',
     guessArray: [],
-    modal: false
+    modal: false,
 }
 
 export const gameReducer = (state=initialState, action) => {
@@ -16,6 +16,7 @@ export const gameReducer = (state=initialState, action) => {
     else if (action.type === actions.GUESS){
         const guessDiff = (Math.abs(action.guessNumber - state.target));
         const newGuessArray = [...state.guessArray, action.guessNumber];
+        state.input = ''
 
         if (guessDiff === 0) {
             return Object.assign({}, state, {match: true})

@@ -5,6 +5,7 @@ import * as actions from '../actions/index';
 export class CloseModal extends React.Component {
     constructor (props) {
         super(props);
+        this.handleCloseClick = this.handleCloseClick.bind(this);
     };
 
     handleCloseClick() {
@@ -24,3 +25,5 @@ export class CloseModal extends React.Component {
 const mapStateToProps = (state, props) => ({
     modalState: state.modal
 });
+
+export default connect(mapStateToProps)(CloseModal);

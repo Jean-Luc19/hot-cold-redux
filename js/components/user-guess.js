@@ -1,21 +1,45 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import * as actions from '../actions/index';
 
-export default class UserGuess extends React.Component {
+export class UserGuess extends React.Component {
   constructor(props) {
     super(props);
-
+    this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {
+        input: ''
+    }
   };
+  handleClick(e) {
+    e.preventDefault();
+    this.props.dispatch(actions.guess(this.state.input))
+    this.setState({input: ''});
+  }
+  handleChange(e) {
+
+     this.setState({input: e.target.value});
+
+  }
   render() {
     return (
             <div className="guess-input">
-                <input type="text" placeholder="Take a Guess"
-                    ref={ref => this.guessInput = ref}
-                />
-                <button onClick={() => this.props.onClick(this.guessInput)}>Submit
-                </button>
+                <form action="" onSubmit={this.handleClick}>
+                    <input type="number"
+                        max="100"
+                        placeholder="Take a Guess"
+                        onChange={this.handleChange}
+                        value={this.state.input}
+                        required
+                    />
+                    <input type="submit"/>
+                </form>
+
             </div>
-
-
     );
   }
 }
+const mapStateToProps = (state, props) => ({
+    input: state.input
+})
+export default connect(mapStateToProps)(UserGuess);

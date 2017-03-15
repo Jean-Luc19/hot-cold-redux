@@ -10,14 +10,9 @@ import ModalContent from './modal-content';
 export class GameContainer extends React.Component {
   constructor(props) {
     super(props);
-
-    this.handleClick = this.handleClick.bind(this);
     this.handleModalClick = this.handleModalClick.bind(this);
   };
 
-  handleClick(input) {
-      this.props.dispatch(actions.guess(input.value));
-  }
   handleModalClick() {
       this.props.dispatch(actions.toggleModal());
   }
@@ -26,7 +21,7 @@ export class GameContainer extends React.Component {
 
     return (
         <section id="container">
-            <UserGuess onClick={this.handleClick} />
+            <UserGuess />
             <ModalContent />
             <GuessList />
             <Feedback />
