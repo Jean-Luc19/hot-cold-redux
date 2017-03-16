@@ -17,8 +17,9 @@ describe('Component should return a number', function() {
         formKids.length.should.equal(2);
         formKids[0].type.should.equal('input');
         formKids[1].type.should.equal('input');
-        result.props.children.props.onSubmit.should.not.be.empty
+        result.props.children.props.onSubmit.should.not.be.empty;
         formKids[0].props.onChange.should.not.be.empty;
         formKids[0].props.value.should.be.equal('');
+        
     });
 });

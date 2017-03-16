@@ -23,21 +23,17 @@ describe('Reducer should return objects in response to different actions', funct
         reducer.modal.should.equal(true)
     })
     it('Should should return updated state objet based on guesses', function(){
-        const testState = {
-            target: 0,
-            match: false,
-            temps: ['frigid', 'nippy', 'tepid', 'smoldering', 'scortching', 'en-freaking-fuego' ],
-            currentTemp: '',
-            guessArray: [],
-            modal: false,
-        }
+    
+        const newState = gameReducer(undefined, action.newGame());
+        const targetNumber = newState.target;
+        const wrongGuessState = gameReducer(newState, actions.guess(targetNumber + 1));
+        wrongGuessState.match.should.equal(false);
+        wrongGuessState.currentTemp.should.equal('en-freaking-fuego');
 
-        const reducer = gameReducer(testState, actions.guess(0));
-        reducer.match.should.equal(true);
-        const reducer2 = gameReducer(testState, actions.guess(50));
-        reducer2.match.should.equal(false);
-        reducer2.guessArray.length.should.equal(1);
-        reducer2.currentTemp.should.equal('nippy');
+        const correctGuessState = gameReducer(wrongGuessState, actions.guess(targetNumber));
+        correctGuessState.match.should.equal(true);
+        correctGuessState.guessArray.length.should.equal(2);
+
 
 
 
