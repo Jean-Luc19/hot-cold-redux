@@ -10,10 +10,7 @@ export class NewGame extends React.Component {
 
     handleNewGameClick() {
         let guessNumber = this.props.guessArray.length;
-        this.props.dispatch(actions.postNewGuessTotal(guessNumber));
         this.props.dispatch(actions.newGame());
-
-
     }
 
     render() {
