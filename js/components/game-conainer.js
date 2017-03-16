@@ -27,6 +27,10 @@ export class GameContainer extends React.Component {
         }
         else {
             newGame = (<NewGame />);
+            let guessNumber = this.props.guessArray.length;
+            this.props.dispatch(actions.postNewGuessTotal(guessNumber));
+            this.props.dispatch(actions.fetchGuesses());
+
         }
 
         return (

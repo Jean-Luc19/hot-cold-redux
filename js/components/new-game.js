@@ -9,9 +9,11 @@ export class NewGame extends React.Component {
     };
 
     handleNewGameClick() {
-        this.props.dispatch(actions.newGame());
         let guessNumber = this.props.guessArray.length;
         this.props.dispatch(actions.postNewGuessTotal(guessNumber));
+        this.props.dispatch(actions.newGame());
+
+
     }
 
     render() {
@@ -28,6 +30,7 @@ export class NewGame extends React.Component {
 }
 
 const mapStateToProps = (state, props) => ({
-    guessArray: state.guessArray
+    guessArray: state.guessArray,
+    guessTotal: state.guesttTotal
 })
 export default connect(mapStateToProps)(NewGame);
