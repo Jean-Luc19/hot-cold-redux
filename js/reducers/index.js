@@ -19,7 +19,7 @@ export const gameReducer = (state=initialState, action) => {
         state.input = ''
 
         if (guessDiff === 0) {
-            return Object.assign({}, state, {match: true})
+            return Object.assign({}, state, {guessArray: newGuessArray}, {match: true})
         }
         else if (guessDiff <= 5) {
             return Object.assign({}, state, {guessArray: newGuessArray}, {currentTemp: state.temps[5]})
