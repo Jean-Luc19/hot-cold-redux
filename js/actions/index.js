@@ -72,5 +72,12 @@ export const postNewGuessTotal = guessTotal => dispatch => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({"guesses": guessTotal})
-    });
-}
+    })
+    .then(response => response.json())
+    .then(data =>
+        dispatch(postGuessSuccess(data.guesses))
+    )
+    .catch(err =>
+        dispatch(postGuessFailure(err))
+    );
+};

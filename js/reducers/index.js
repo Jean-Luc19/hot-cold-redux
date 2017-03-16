@@ -56,6 +56,13 @@ export const gameReducer = (state=initialState, action) => {
     else if (action.type === actions.FETCH_GUESSES_FAILURE) {
         return {...state, guessTotal: action.error}
     }
+    else if (action.type === actions.POST_GUESSES_SUCCESS) {
+        return {...state, guessTotal: action.guessTotal}
+    }
+
+    else if (action.type === actions.POST_GUESS_FAILURE) {
+        return {...state, guessTotal: action.error}
+    }
 
     return state;
 
