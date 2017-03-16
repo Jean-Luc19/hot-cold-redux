@@ -38,5 +38,6 @@ export class UserGuess extends React.Component {
 }
 const mapStateToProps = (state, props) => ({
     input: state.input
+
 })
 export default connect(mapStateToProps)(UserGuess);

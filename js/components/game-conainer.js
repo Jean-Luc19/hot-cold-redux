@@ -8,16 +8,26 @@ import ModalContent from './modal-content';
 import NewGame from './new-game'
 
 export function GameContainer (props) {
+    let userGuess;
+    let newGame;
+    if (!props.match) {
+        userGuess = (<UserGuess />)
+    }
+    else {
+        newGame = (<NewGame />);
+    }
+
     return (
       <div className="fullScreen">
         <ModalContent />
           <section id="container">
             <ModalButton />
             <div className="gameboard">
-              <h2>Themodynamic Disambigualator</h2>
-              <UserGuess />
-              <GuessList />
+              <h2>Thermodynamic Disambigualator</h2>
+              {userGuess}
+              <GuessList guessArray={props.guessArray}/>
               <Feedback />
+              {newGame}
             </div>
             <NewGame />
 
@@ -25,4 +35,9 @@ export function GameContainer (props) {
       </div>
     );
 }
-export default connect()(GameContainer);
+
+const mapStateToProps = (state, props) => ({
+    match: state.match,
+    guessArray: state.guessArray
+})
+export default connect(mapStateToProps)(GameContainer);
