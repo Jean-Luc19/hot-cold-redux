@@ -32,7 +32,7 @@ export class UserGuess extends React.Component {
                     />
                   <input className="input submit" type="submit"/>
                 </form>
-                <h3>This is the guess total: {this.props.guessTotal}</h3>
+                <p>This is the lowest number of guesses ever taken to win this game: {this.props.guessTotal}</p>
             </div>
     );
   }

@@ -12,7 +12,9 @@ const initialState = {
 
 export const gameReducer = (state=initialState, action) => {
     if (action.type === actions.NEW_GAME) {
-        return initialState
+        const newGuessArray = [];
+
+        return Object.assign({}, state, {guessArray: [], currentTemp: '', match: false, target: Math.floor(Math.random() * 100)});
     }
     else if (action.type === actions.GUESS){
         const guessDiff = (Math.abs(action.guessNumber - state.target));
@@ -54,7 +56,7 @@ export const gameReducer = (state=initialState, action) => {
     else if (action.type === actions.FETCH_GUESSES_FAILURE) {
         return {...state, guessTotal: action.error}
     }
-    
+
     return state;
 
 

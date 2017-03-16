@@ -51,3 +51,26 @@ export const fetchGuesses = () => dispatch => {
             dispatch(fetchGuessesFailure(err))
         );
 };
+
+export const POST_GUESSES_SUCCESS = 'POST_GUESSES_SUCCESS';
+export const postGuessSuccess = guessTotal => ({
+    type: POST_GUESSES_SUCCESS,
+    guessTotal
+});
+
+export const POST_GUESS_FAILURE = 'POST_GUESS_FAILURE';
+export const postGuessFailure = error => ({
+    type: POST_GUESS_FAILURE,
+    error
+})
+
+export const postNewGuessTotal = guessTotal => dispatch => {
+    const url = `http://localhost:8081/api/guesses`;
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({"guesses": guessTotal})
+    });
+}

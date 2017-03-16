@@ -51,36 +51,6 @@ export class GameContainer extends React.Component {
 }
 
 
-
-// export function GameContainer (props) {
-//     let userGuess;
-//     let newGame;
-//     if (!props.match) {
-//         userGuess = (<UserGuess />)
-//     }
-//     else {
-//         newGame = (<NewGame />);
-//     }
-//
-//     return (
-//       <div className="fullScreen">
-//         <ModalContent />
-//           <section id="container">
-//             <ModalButton />
-//             <div className="gameboard">
-//               <h2>Thermodynamic Disambigualator</h2>
-//               {userGuess}
-//               <GuessList guessArray={props.guessArray}/>
-//               <Feedback />
-//               {newGame}
-//             </div>
-//             <NewGame />
-//
-//         </section>
-//       </div>
-//     );
-// }
-
 const mapStateToProps = (state, props) => ({
     match: state.match,
     guessArray: state.guessArray
