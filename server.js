@@ -14,7 +14,7 @@ app.use((req, res, next) => {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
-let guesses = 0;
+let guesses = 5;
 
 app.get('/api/guesses', (req, res) => {
     res.json({

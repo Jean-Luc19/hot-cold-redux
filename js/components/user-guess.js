@@ -32,12 +32,14 @@ export class UserGuess extends React.Component {
                     />
                   <input className="input submit" type="submit"/>
                 </form>
+                <h3>This is the guess total: {this.props.guessTotal}</h3>
             </div>
     );
   }
 }
 const mapStateToProps = (state, props) => ({
-    input: state.input
+    input: state.input,
+    guessTotal: state.guessTotal
 
 })
 export default connect(mapStateToProps)(UserGuess);

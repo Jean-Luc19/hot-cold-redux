@@ -6,35 +6,80 @@ import GuessList from './guess-list';
 import ModalButton from './modal-button';
 import ModalContent from './modal-content';
 import NewGame from './new-game'
+import * as actions from '../actions/index';
 
-export function GameContainer (props) {
-    let userGuess;
-    let newGame;
-    if (!props.match) {
-        userGuess = (<UserGuess />)
-    }
-    else {
-        newGame = (<NewGame />);
+export class GameContainer extends React.Component {
+    constructor(props) {
+        super(props);
     }
 
-    return (
-      <div className="fullScreen">
-        <ModalContent />
-          <section id="container">
-            <ModalButton />
-            <div className="gameboard">
-              <h2>Thermodynamic Disambigualator</h2>
-              {userGuess}
-              <GuessList guessArray={props.guessArray}/>
-              <Feedback />
-              {newGame}
-            </div>
-            <NewGame />
+    componentDidMount() {
+        this.props.dispatch(
+            actions.fetchGuesses()
+        );
+    }
 
-        </section>
-      </div>
-    );
+    render() {
+        let userGuess;
+        let newGame;
+        if (!this.props.match) {
+            userGuess = (<UserGuess />)
+        }
+        else {
+            newGame = (<NewGame />);
+        }
+
+        return (
+          <div className="fullScreen">
+            <ModalContent />
+              <section id="container">
+                <ModalButton />
+                <div className="gameboard">
+                  <h2>Thermodynamic Disambigualator</h2>
+                  {userGuess}
+                  <GuessList guessArray={this.props.guessArray}/>
+                  <Feedback />
+                  {newGame}
+                </div>
+                <NewGame />
+
+            </section>
+          </div>
+        );
+    }
+
 }
+
+
+
+// export function GameContainer (props) {
+//     let userGuess;
+//     let newGame;
+//     if (!props.match) {
+//         userGuess = (<UserGuess />)
+//     }
+//     else {
+//         newGame = (<NewGame />);
+//     }
+//
+//     return (
+//       <div className="fullScreen">
+//         <ModalContent />
+//           <section id="container">
+//             <ModalButton />
+//             <div className="gameboard">
+//               <h2>Thermodynamic Disambigualator</h2>
+//               {userGuess}
+//               <GuessList guessArray={props.guessArray}/>
+//               <Feedback />
+//               {newGame}
+//             </div>
+//             <NewGame />
+//
+//         </section>
+//       </div>
+//     );
+// }
 
 const mapStateToProps = (state, props) => ({
     match: state.match,

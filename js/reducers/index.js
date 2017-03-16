@@ -7,6 +7,7 @@ const initialState = {
     currentTemp: '',
     guessArray: [],
     modal: false,
+    guessTotal: null
 }
 
 export const gameReducer = (state=initialState, action) => {
@@ -45,6 +46,15 @@ export const gameReducer = (state=initialState, action) => {
     else if (action.type === actions.TOGGLE_MODAL) {
         return {...state, modal: !state.modal}
     }
+
+    else if (action.type === actions.FETCH_GUESSES_SUCCESS) {
+        return {...state, guessTotal: action.guessTotal}
+    }
+
+    else if (action.type === actions.FETCH_GUESSES_FAILURE) {
+        return {...state, guessTotal: action.error}
+    }
+    
     return state;
 
 
