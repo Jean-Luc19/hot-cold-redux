@@ -45,7 +45,7 @@ export const fetchGuesses = () => dispatch => {
         })
         .then(response => response.json())
         .then(data =>
-            dispatch(fetchGuessesSuccess(data.guesses))
+            dispatch(fetchGuessesSuccess(data.fewestGuess))
         )
         .catch(err =>
             dispatch(fetchGuessesFailure(err))
@@ -75,7 +75,7 @@ export const postNewGuessTotal = guessTotal => dispatch => {
     })
     .then(response => response.json())
     .then(data =>
-        dispatch(postGuessSuccess(data.guesses))
+        dispatch(postGuessSuccess(data.fewestGuess))
     )
     .catch(err =>
         dispatch(postGuessFailure(err))

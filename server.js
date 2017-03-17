@@ -8,30 +8,64 @@ const jsonParser = bodyParser.json();
 mongoose.Promise = global.Promise;
 
 const app = express();
+const {Guess} = require('./model');
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
-let guesses = 0;
+
 
 app.get('/api/guesses', (req, res) => {
-    res.json({
-        guesses
-    });
+    Guess
+        .findOne()
+        .sort("fewestGuess")
+        .exec()
+        .then(data => {
+            res.json({
+                fewestGuess: data.fewestGuess
+            })
+        });
+
 });
 
 
 app.post('/api/guesses', jsonParser, (req, res) => {
-    if (guesses === 0 || req.body.guesses < guesses) {
-        guesses = req.body.guesses;
-    }
-    res.json({
-        guesses
-    });
+
+    Guess
+        .create({fewestGuess: req.body.guesses})
+        .then(data => {
+            res.json({
+                fewestGuess: data.fewestGuess
+            })
+
+        })
+
 });
 
-app.listen(PORT, () => {
-    console.log('Listening on Port 8081');
-});
+const runServer = function(callback) {
+  mongoose.connect(DATABASE_URL, err => {
+    if (err && callback) {
+      return callback(err);
+    }
+
+    console.log(`Connected to db at ${DATABASE_URL}`);
+
+    app.listen(PORT, () => {
+
+      if (callback) {
+        callback();
+      }
+    });
+  });
+};
+
+// Check if server.js is being called directly or through ./require
+if (require.main === module) {
+  runServer(err => {
+    if (err) {
+      console.error(err);
+    }
+  });
+}

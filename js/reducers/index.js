@@ -12,7 +12,7 @@ const initialState = {
 
 export const gameReducer = (state=initialState, action) => {
     if (action.type === actions.NEW_GAME) {
-        const newGuessArray = [];
+
 
         return Object.assign({}, state, {guessArray: [], currentTemp: '', match: false, target: Math.floor(Math.random() * 100)});
     }
@@ -61,7 +61,7 @@ export const gameReducer = (state=initialState, action) => {
     }
 
     else if (action.type === actions.POST_GUESS_FAILURE) {
-        return {...state, guessTotal: action.error}
+        return {...state, guessTotal: action.err}
     }
 
     return state;
